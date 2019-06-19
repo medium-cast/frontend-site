@@ -10,11 +10,11 @@ import img2 from "../../content/assets/2.jpg"
 import img3 from "../../content/assets/3.jpg"
 import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
-import Icon from '@material-ui/core/Icon';
-import DeleteIcon from '@material-ui/icons/Delete';
 import withRoot from '../withRoot';
 import EmailIcon from '@material-ui/icons/Email';
+import FingerprintIcon from '@material-ui/icons/Fingerprint';
+import Paper from "@material-ui/core/Paper"
+import Grid from "@material-ui/core/Grid"
 const settings = {
   dots: true,
   infinite: true,
@@ -22,7 +22,7 @@ const settings = {
   lazyLoad: true,
   slidesToShow: 1,
   slidesToScroll: 1,
-  autoplay: true,
+  autoplay: false,
   autoplaySpeed: 2000,
 };
 const styles = theme => ({
@@ -34,31 +34,98 @@ const styles = theme => ({
   },
   button: {
     marginRight: theme.spacing.unit
-  }
+  },
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    boxShadow: 'none',
+    backgroundColor: '#ffffff00',
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+  fab: {
+    width: 180
+  },
+  actionContainer: {
+    minHeight: '50vh'
+  },
+  col: {
+    flexDirection: 'column',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  titleBig: {
+    fontSize: '80px',
+  },
+  titleSmall: {
+    fontSize: '20px',
+  },
+  titleFirst: {
+    color: '#fff',
+    fontFamily:  `-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif`
+  },
+  titleSecond: {
+    color: '#E95E58',
+    fontFamily:  `-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif`
+  },
+  siteTitle: {
+    position: 'absolute',
+    display: 'flex',
+    width: '100vw',
+    height: '90vh',
+    top: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  movingTitle: {
+    fontWeight: 700,
+    display: "block", width:"100vw", textAlign: "center", position:"fixed", color:"white",
+    top: "50%", height:"80px",fontFamily: `-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif`,}
 });
 const BlogIndex = ({ classes }) => (
-  <div style={{overflowX:"hidden"}}>
+  <div>
     <Slider {...settings} style={{width:"100%"}}>
       <div>
         <div>
           <img style={{width:"100vw", height: "100vh", objectFit: "cover"}} src={img1} alt="Play" />
-          <h1 style={{display: "block", width:"100vw", textAlign: "center", position:"fixed", color:"white", top: "calc( 50% - 40px)", height:"80px",fontFamily: `-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif`,}}>Play</h1>
+          <h1 className={classes.movingTitle}>Play</h1>
         </div>
 
       </div>
       <div>
         <img style={{width:"100vw", height: "100vh", objectFit: "cover"}} src={img2} alt="Share" />
-        <h1 style={{display: "block", width:"100vw", textAlign: "center", position:"absolute", color:"white", top: "calc( 50% - 40px)", height:"80px",fontFamily:  `-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif`,}}>Share</h1>
+        <h1 class={classes.movingTitle} >Share</h1>
       </div>
       <div>
         <img style={{width:"100vw", height: "100vh", objectFit: "cover"}} src={img3} alt="Experience" />
-        <h1 style={{display: "block", width:"100vw", textAlign: "center", position:"absolute", color:"white", top: "calc( 50% - 40px)", height:"80px",fontFamily:  `-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif`,}}>Experience</h1>
+        <h1 class={classes.movingTitle} >Experience</h1>
       </div>
     </Slider>
-    <Fab variant="extended" aria-label="Delete">
-      <EmailIcon />
-      Contact Us
-    </Fab>
+    <div className={classes.siteTitle}>
+      <h1 className={`site-title ${classes.titleFirst}`}>Medium</h1><h1 className={`site-title ${classes.titleSecond}`}>cast</h1>
+    </div>
+
+    <Grid container spacing={3} className={classes.actionContainer} >
+      <Grid item xs={12} sm={6} className={classes.col}>
+        <Paper className={classes.paper}>
+          <Fab className={classes.fab} color="secondary" variant="extended" aria-label="Email" href={"mailto:info@mediumcast.com"}>
+            <EmailIcon />
+            Contact Us
+          </Fab>
+        </Paper>
+      </Grid>
+      <Grid item xs={12} sm={6} className={classes.col}>
+        <Paper className={classes.paper}>
+          <Fab className={classes.fab} color="primary" variant="extended" aria-label="Login" href={"mailto:info@mediumcast.com"}>
+            <FingerprintIcon />
+            Login
+          </Fab>
+        </Paper>
+      </Grid>
+    </Grid>
+
   </div>
 );
 
