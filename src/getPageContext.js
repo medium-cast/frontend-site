@@ -9,10 +9,10 @@ import {
 const theme = createMuiTheme({
     palette: {
         primary: {
-            main: '#663399'
+            main: '#ffa326'
         },
         secondary: {
-            main: '#ffb238'
+            main: '#E95E58'
         }
     },
     typography: {
