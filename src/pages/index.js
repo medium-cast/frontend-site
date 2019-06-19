@@ -32,13 +32,15 @@ class BlogIndex extends React.Component {
         <Slider {...settings} style={{width:"100%"}}>
           <div>
             <img style={{width:"100vw", height: "100vh", objectFit: "cover"}} src={img1} alt="Play" />
-            <h1 style={{display: "block", width:"100%", textAlign: "center", position:"absolute"}}>Play</h1>
+            <h1 style={{display: "block", width:"100%", textAlign: "center", position:"absolute", color:"white", top: "calc( 50% - 40px)", height:"80px"}}>Play</h1>
           </div>
           <div>
             <img style={{width:"100vw", height: "100vh", objectFit: "cover"}} src={img2} alt="Share" />
+            <h1 style={{display: "block", width:"100%", textAlign: "center", position:"absolute", color:"white", top: "calc( 50% - 40px)", height:"80px"}}>Share</h1>
           </div>
           <div>
             <img style={{width:"100vw", height: "100vh", objectFit: "cover"}} src={img3} alt="Experience" />
+            <h1 style={{display: "block", width:"100%", textAlign: "center", position:"absolute", color:"white", top: "calc( 50% - 40px)", height:"80px"}}>Experience</h1>
           </div>
         </Slider>
         <SEO title="contact" />
