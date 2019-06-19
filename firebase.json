@@ -7,6 +7,32 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "headers": [ {
+        // Specifies a CORS header for all font files
+        "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css|woff2)",
+        "headers": [ {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+          {
+            "key": "Cache-Control",
+            "value": "max-age=36000000"
+          } ]
+      }, {
+        // Overrides the default 1 hour browser cache with a 2 hour cache for all image files
+        "source": "**/*.@(jpg|jpeg|gif|png|js|css|html)",
+        "headers": [ {
+          "key": "Cache-Control",
+          "value": "max-age=36000000"
+        } ]
+      }, {
+        // Sets the cache header for 404 pages to cache for 5 minutes
+        "source": "404.html",
+        "headers": [ {
+          "key": "Cache-Control",
+          "value": "max-age=3600000"
+        } ]
+      } ],
     "rewrites": [
       {
         "source": "**",

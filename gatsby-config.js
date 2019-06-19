@@ -49,12 +49,12 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     //trackingId: `ADD YOUR TRACKING ID HERE`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -67,38 +67,7 @@ module.exports = {
         icon: `content/assets/mediumcast-icon.png`,
       },
     },
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        importWorkboxFrom: `local`,
-        globDirectory: '.',
-        globPatterns: ['*/**'],
-        cacheId: `gatsby-plugin-offline`,
-        // Don't cache-bust JS or CSS files, and anything in the static directory,
-        // since these files have unique URLs and their contents will never change
-        dontCacheBustUrlsMatching: /(\.js$|\.css$|static\/)/,
-        runtimeCaching: [
-          {
-            // Use cacheFirst since these don't need to be revalidated (same RegExp
-            // and same reason as above)
-            urlPattern: /(\.js$|\.css$|static\/)/,
-            handler: `cacheFirst`,
-          },
-          {
-            // Add runtime caching of various other page resources
-            urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
-            handler: `staleWhileRevalidate`,
-          },
-          {
-            // Google Fonts CSS (doesn't end in .css so we need to specify it)
-            urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
-            handler: `staleWhileRevalidate`,
-          },
-        ],
-        skipWaiting: true,
-        clientsClaim: true,
-      }
-    },
+    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
