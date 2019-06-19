@@ -124,7 +124,7 @@ const BlogIndex = ({ classes, data }) => (
         </Grid>
         <Grid item xs={12} sm={6} className={classes.col}>
           <Paper className={classes.paper}>
-            <Fab className={classes.fab} color="primary" variant="extended" aria-label="Login" href={"mailto:info@mediumcast.com"}>
+            <Fab className={classes.fab} color="primary" variant="extended" aria-label="Login" href={"portal.mediumcast.com"}>
               <FingerprintIcon />
               Login
             </Fab>
@@ -143,21 +143,21 @@ export const pageQuery = graphql`
   query {
     imageOne: file(relativePath: { eq: "1.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1000) {
+        fluid(maxWidth: 1200) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     imageTwo: file(relativePath: { eq: "2.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1000) {
+        fluid(maxWidth: 1200) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     imageThree: file(relativePath: { eq: "3.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1000) {
+        fluid(maxWidth: 1200) {
           ...GatsbyImageSharpFluid
         }
       }
