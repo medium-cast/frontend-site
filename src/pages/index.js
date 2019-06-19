@@ -12,9 +12,13 @@ import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import withRoot from '../withRoot';
 import EmailIcon from '@material-ui/icons/Email';
+import ArrowIcon from '@material-ui/icons/PlayArrow';
+import TouchIcon from '@material-ui/icons/TouchApp';
+import PhoneIcon from '@material-ui/icons/SpeakerPhone';
 import FingerprintIcon from '@material-ui/icons/Fingerprint';
 import Paper from "@material-ui/core/Paper"
 import Grid from "@material-ui/core/Grid"
+import TouchRipple from "@material-ui/core/ButtonBase/TouchRipple"
 const settings = {
   dots: true,
   infinite: true,
@@ -80,9 +84,13 @@ const styles = theme => ({
     justifyContent: 'center',
   },
   movingTitle: {
-    fontWeight: 700,
+    fontWeight: 600,
     display: "block", width:"100vw", textAlign: "center", position:"fixed", color:"white",
-    top: "50%", height:"80px",fontFamily: `-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif`,}
+    top: "50%", height:"80px",fontFamily: `-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif`,
+  },
+  movingIcon: {
+
+  }
 });
 const BlogIndex = ({ classes }) => (
   <div>
@@ -90,17 +98,17 @@ const BlogIndex = ({ classes }) => (
       <div>
         <div>
           <img style={{width:"100vw", height: "100vh", objectFit: "cover"}} src={img1} alt="Play" />
-          <h1 className={classes.movingTitle}>Play</h1>
+          <h3 className={classes.movingTitle}>PLAY<ArrowIcon className={classes.movingIcon}/></h3>
         </div>
 
       </div>
       <div>
         <img style={{width:"100vw", height: "100vh", objectFit: "cover"}} src={img2} alt="Share" />
-        <h1 class={classes.movingTitle} >Share</h1>
+        <h3 className={classes.movingTitle} >SHARE<PhoneIcon className={classes.movingIcon}/></h3>
       </div>
       <div>
         <img style={{width:"100vw", height: "100vh", objectFit: "cover"}} src={img3} alt="Experience" />
-        <h1 class={classes.movingTitle} >Experience</h1>
+        <h3 className={classes.movingTitle} >EXPERIENCE<TouchIcon className={classes.movingIcon}/></h3>
       </div>
     </Slider>
     <div className={classes.siteTitle}>
