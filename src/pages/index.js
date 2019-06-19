@@ -19,6 +19,7 @@ import FingerprintIcon from '@material-ui/icons/Fingerprint';
 import Paper from "@material-ui/core/Paper"
 import Grid from "@material-ui/core/Grid"
 import TouchRipple from "@material-ui/core/ButtonBase/TouchRipple"
+import Container from "@material-ui/core/Container"
 const settings = {
   dots: true,
   infinite: true,
@@ -26,18 +27,18 @@ const settings = {
   lazyLoad: true,
   slidesToShow: 1,
   slidesToScroll: 1,
-  autoplay: false,
+  autoplay: true,
   autoplaySpeed: 2000,
 };
 const styles = theme => ({
   section: {
-    marginTop: theme.spacing.unit * 3
+    marginTop: theme.spacing(3)
   },
   toolbar: {
-    marginTop: theme.spacing.unit * 2
+    marginTop: theme.spacing(2)
   },
   button: {
-    marginRight: theme.spacing.unit
+    marginRight: theme.spacing()
   },
   root: {
     flexGrow: 1,
@@ -115,24 +116,27 @@ const BlogIndex = ({ classes }) => (
       <h1 className={`site-title ${classes.titleFirst}`}>Medium</h1><h1 className={`site-title ${classes.titleSecond}`}>cast</h1>
     </div>
 
-    <Grid container spacing={3} className={classes.actionContainer} >
-      <Grid item xs={12} sm={6} className={classes.col}>
-        <Paper className={classes.paper}>
-          <Fab className={classes.fab} color="secondary" variant="extended" aria-label="Email" href={"mailto:info@mediumcast.com"}>
-            <EmailIcon />
-            Contact Us
-          </Fab>
-        </Paper>
+    <Container maxWidth="md">
+      <Grid container spacing={3} className={classes.actionContainer} >
+        <Grid item xs={12} sm={6} className={classes.col}>
+          <Paper className={classes.paper}>
+            <Fab className={classes.fab} color="secondary" variant="extended" aria-label="Email" href={"mailto:info@mediumcast.com"}>
+              <EmailIcon />
+              Contact Us
+            </Fab>
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sm={6} className={classes.col}>
+          <Paper className={classes.paper}>
+            <Fab className={classes.fab} color="primary" variant="extended" aria-label="Login" href={"mailto:info@mediumcast.com"}>
+              <FingerprintIcon />
+              Login
+            </Fab>
+          </Paper>
+        </Grid>
       </Grid>
-      <Grid item xs={12} sm={6} className={classes.col}>
-        <Paper className={classes.paper}>
-          <Fab className={classes.fab} color="primary" variant="extended" aria-label="Login" href={"mailto:info@mediumcast.com"}>
-            <FingerprintIcon />
-            Login
-          </Fab>
-        </Paper>
-      </Grid>
-    </Grid>
+    </Container>
+
 
   </div>
 );

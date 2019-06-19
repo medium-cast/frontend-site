@@ -13,7 +13,6 @@ function withRoot(Component) {
             return (
               <MuiThemeProvider
                 theme={this.muiPageContext.theme}
-                sheetsManager={this.muiPageContext.sheetsManager}
               >
                   {/* Kickstart a simple baseline to build upon. */}
                   <CssBaseline />
