@@ -1,10 +1,6 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Slider from "react-slick";
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 import img1 from "../../content/assets/1.jpg"
 import img2 from "../../content/assets/2.jpg"
 import img3 from "../../content/assets/3.jpg"
@@ -18,7 +14,7 @@ import PhoneIcon from '@material-ui/icons/SpeakerPhone';
 import FingerprintIcon from '@material-ui/icons/Fingerprint';
 import Paper from "@material-ui/core/Paper"
 import Grid from "@material-ui/core/Grid"
-import TouchRipple from "@material-ui/core/ButtonBase/TouchRipple"
+import Img from "gatsby-image"
 import Container from "@material-ui/core/Container"
 const settings = {
   dots: true,
@@ -87,28 +83,28 @@ const styles = theme => ({
   movingTitle: {
     fontWeight: 600,
     display: "block", width:"100vw", textAlign: "center", position:"fixed", color:"white",
-    top: "50%", height:"80px",fontFamily: `-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif`,
+    top: "55%", height:"80px",fontFamily: `-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif`,
   },
   movingIcon: {
 
   }
 });
-const BlogIndex = ({ classes }) => (
+const BlogIndex = ({ classes, data }) => (
   <div>
     <Slider {...settings} style={{width:"100%"}}>
       <div>
         <div>
-          <img style={{width:"100vw", height: "100vh", objectFit: "cover"}} src={img1} alt="Play" />
+          <Img fluid={data.imageOne.childImageSharp.fluid} style={{width:"100vw", height: "100vh", objectFit: "cover"}} alt="Play"/>
           <h3 className={classes.movingTitle}>PLAY<ArrowIcon className={classes.movingIcon}/></h3>
         </div>
 
       </div>
       <div>
-        <img style={{width:"100vw", height: "100vh", objectFit: "cover"}} src={img2} alt="Share" />
+        <Img fluid={data.imageTwo.childImageSharp.fluid} style={{width:"100vw", height: "100vh", objectFit: "cover"}} alt="Share"/>
         <h3 className={classes.movingTitle} >SHARE<PhoneIcon className={classes.movingIcon}/></h3>
       </div>
       <div>
-        <img style={{width:"100vw", height: "100vh", objectFit: "cover"}} src={img3} alt="Experience" />
+        <Img fluid={data.imageThree.childImageSharp.fluid} style={{width:"100vw", height: "100vh", objectFit: "cover"}} alt="Experience"/>
         <h3 className={classes.movingTitle} >EXPERIENCE<TouchIcon className={classes.movingIcon}/></h3>
       </div>
     </Slider>
@@ -145,23 +141,24 @@ export default withRoot(withStyles(styles)(BlogIndex));
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
+    imageOne: file(relativePath: { eq: "1.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-          }
+    imageTwo: file(relativePath: { eq: "2.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    imageThree: file(relativePath: { eq: "3.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
