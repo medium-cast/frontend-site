@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "mediumcast-eng"
+  },
+  "targets": {
+    "mediumcast-eng": {
+      "hosting": {
+        "frontend": [
+          "mediumcast-frontend"
+        ]
+      }
+    }
   }
 }
