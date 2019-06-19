@@ -124,7 +124,7 @@ const BlogIndex = ({ classes, data }) => (
         </Grid>
         <Grid item xs={12} sm={6} className={classes.col}>
           <Paper className={classes.paper}>
-            <Fab className={classes.fab} color="primary" variant="extended" aria-label="Login" href={"portal.mediumcast.com"}>
+            <Fab className={classes.fab} color="primary" variant="extended" aria-label="Login" href={"https://portal.mediumcast.com"}>
               <FingerprintIcon />
               Login
             </Fab>
