@@ -9,6 +9,13 @@ import img1 from "../../content/assets/1.jpg"
 import img2 from "../../content/assets/2.jpg"
 import img3 from "../../content/assets/3.jpg"
 
+import { makeStyles } from '@material-ui/core/styles';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import Icon from '@material-ui/core/Icon';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EmailIcon from '@material-ui/icons/Email';
+
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
@@ -24,6 +31,7 @@ class BlogIndex extends React.Component {
       autoplay: true,
       autoplaySpeed: 2000,
     };
+
 
     return (
       <div style={{overflowX:"hidden"}}>
@@ -44,7 +52,10 @@ class BlogIndex extends React.Component {
             <h1 style={{display: "block", width:"100vw", textAlign: "center", position:"absolute", color:"white", top: "calc( 50% - 40px)", height:"80px",fontFamily:  `-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif`,}}>Experience</h1>
           </div>
         </Slider>
-        <SEO title="contact" />
+        <Fab variant="extended" aria-label="Delete">
+          <EmailIcon />
+          Contact Us
+        </Fab>
       </div>
 
     )
