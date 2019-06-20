@@ -138,7 +138,7 @@ const BlogIndex = ({ classes, data }) => (
   </div>
 );
 
-export default withRoot(withStyles(styles)(BlogIndex));
+export default withStyles(styles)(BlogIndex);
 
 export const pageQuery = graphql`
   query {
