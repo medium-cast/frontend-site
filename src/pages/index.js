@@ -17,14 +17,16 @@ import Grid from "@material-ui/core/Grid"
 import Img from "gatsby-image"
 import Container from "@material-ui/core/Container"
 const settings = {
-  dots: true,
   infinite: true,
   speed: 500,
   lazyLoad: true,
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 2000,
+  autoplaySpeed: 3500,
+  dots: false,
+  prevArrow: false,
+  nextArrow: false
 };
 const styles = theme => ({
   section: {
