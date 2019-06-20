@@ -1,9 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Slider from "react-slick";
-import img1 from "../../content/assets/1.jpg"
-import img2 from "../../content/assets/2.jpg"
-import img3 from "../../content/assets/3.jpg"
 import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import withRoot from '../withRoot';
@@ -66,10 +63,12 @@ const styles = theme => ({
     fontSize: '20px',
   },
   titleFirst: {
+    fontWeight: 900,
     color: '#fff',
     fontFamily:  `-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif`
   },
   titleSecond: {
+    fontWeight: 900,
     color: '#E95E58',
     fontFamily:  `-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif`
   },
@@ -83,7 +82,7 @@ const styles = theme => ({
     justifyContent: 'center',
   },
   movingTitle: {
-    fontWeight: 600,
+    fontWeight: 700,
     display: "block", width:"100vw", textAlign: "center", position:"fixed", color:"white",
     top: "55%", height:"80px",fontFamily: `-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif`,
   },
@@ -97,17 +96,17 @@ const BlogIndex = ({ classes, data }) => (
       <div>
         <div>
           <Img fluid={data.imageOne.childImageSharp.fluid} style={{width:"100vw", height: "100vh", objectFit: "cover"}} alt="Play"/>
-          <h3 className={classes.movingTitle}>PLAY<ArrowIcon className={classes.movingIcon}/></h3>
+          <h2 className={classes.movingTitle}>PLAY<ArrowIcon className={classes.movingIcon}/></h2>
         </div>
 
       </div>
       <div>
         <Img fluid={data.imageTwo.childImageSharp.fluid} style={{width:"100vw", height: "100vh", objectFit: "cover"}} alt="Share"/>
-        <h3 className={classes.movingTitle} >SHARE<PhoneIcon className={classes.movingIcon}/></h3>
+        <h2 className={classes.movingTitle} >SHARE<PhoneIcon className={classes.movingIcon}/></h2>
       </div>
       <div>
         <Img fluid={data.imageThree.childImageSharp.fluid} style={{width:"100vw", height: "100vh", objectFit: "cover"}} alt="Experience"/>
-        <h3 className={classes.movingTitle} >EXPERIENCE<TouchIcon className={classes.movingIcon}/></h3>
+        <h2 className={classes.movingTitle} >EXPERIENCE<TouchIcon className={classes.movingIcon}/></h2>
       </div>
     </Slider>
     <div className={classes.siteTitle}>
