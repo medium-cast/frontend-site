@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Mediumcast`,
     author: `Xinwei Ding`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://mediumcast.com/`,
+    description: `XXDD`,
+    siteUrl: `https://mediumcast.com/`
   },
   plugins: [
     {
@@ -15,15 +15,15 @@ module.exports = {
         // stylesProvider: {
         //   injectFirst: true,
         // },
-      },
+      }
       // 'gatsby-plugin-styled-components',
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/assets`,
-        name: `images`,
-      },
+        name: `images`
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -32,20 +32,20 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
-            },
+              maxWidth: 590
+            }
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
-        ],
-      },
+          `gatsby-remark-smartypants`
+        ]
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -64,10 +64,10 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffa13f`,
         display: `minimal-ui`,
-        icon: `content/assets/mediumcast-icon.png`,
-      },
+        icon: `content/assets/mediumcast-icon.png`
+      }
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
-  ],
-}
+    `gatsby-plugin-react-helmet`
+  ]
+};
